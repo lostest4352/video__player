@@ -49,9 +49,12 @@ class HomePage extends StatelessWidget {
                   ),
                   Builder(
                     builder: (context) {
-                      if (value.selectedImage?.path != null) {
+                      if (value.selectedImage != null) {
                         return Center(
-                            child: Image.file(File(value.selectedImage!.path)));
+                          child: Image.file(
+                            File(value.selectedImage!.path),
+                          ),
+                        );
                       } else {
                         return const Center();
                       }
