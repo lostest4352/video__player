@@ -13,7 +13,7 @@ class ImagePickerService with ChangeNotifier {
     }
   }
 
-  void getImage(XFile? media) {
+  void getImage(XFile media) {
     selectedFile = media;
     notifyListeners();
   }
