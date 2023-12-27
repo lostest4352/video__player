@@ -4,7 +4,8 @@ import 'package:image_picker/image_picker.dart';
 class ImagePickerService with ChangeNotifier {
   final ImagePicker picker = ImagePicker();
 
-  XFile? selectedFile;
+  XFile? selectedImage;
+  XFile? selectedVideo;
 
   // For images
   void selectImage() async {
@@ -15,7 +16,7 @@ class ImagePickerService with ChangeNotifier {
   }
 
   void getImage(XFile media) {
-    selectedFile = media;
+    selectedImage = media;
     notifyListeners();
   }
 
@@ -28,7 +29,7 @@ class ImagePickerService with ChangeNotifier {
   }
 
   void getVideo(XFile media) {
-    selectedFile = media;
+    selectedVideo = media;
     notifyListeners();
   }
 }
