@@ -6,14 +6,10 @@ class ImagePickerService with ChangeNotifier {
 
   XFile? selectedFile;
 
-  Future<XFile?> selectImage() async {
+  selectImage() async {
     final XFile? media = await picker.pickMedia();
-
-    if (media == null) {
-      return null;
-    } else {
+    if (media != null) {
       getImage(media);
-      return media;
     }
   }
 
