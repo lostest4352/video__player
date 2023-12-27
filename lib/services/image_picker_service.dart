@@ -6,7 +6,7 @@ class ImagePickerService with ChangeNotifier {
 
   XFile? selectedFile;
 
-  selectImage() async {
+  void selectImage() async {
     final XFile? media = await picker.pickMedia();
     if (media != null) {
       getImage(media);
