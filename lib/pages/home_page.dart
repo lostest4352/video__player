@@ -45,14 +45,16 @@ class HomePage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              () {
-                if (value.selectedFile?.path != null) {
-                  return Center(
-                      child: Image.file(File(value.selectedFile!.path)));
-                } else {
-                  return const Center(child: Text("No Image selected"));
-                }
-              }(),
+              Builder(
+                builder: (context) {
+                  if (value.selectedFile?.path != null) {
+                    return Center(
+                        child: Image.file(File(value.selectedFile!.path)));
+                  } else {
+                    return const Center(child: Text("No Image selected"));
+                  }
+                },
+              ),
             ],
           );
         },

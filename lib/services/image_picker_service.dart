@@ -6,14 +6,28 @@ class ImagePickerService with ChangeNotifier {
 
   XFile? selectedFile;
 
+  // For images
   void selectImage() async {
-    final XFile? media = await picker.pickMedia();
+    final XFile? media = await picker.pickImage(source: ImageSource.gallery);
     if (media != null) {
       getImage(media);
     }
   }
 
   void getImage(XFile media) {
+    selectedFile = media;
+    notifyListeners();
+  }
+
+  // For videos
+  void selectVideo() async {
+    final XFile? media = await picker.pickVideo(source: ImageSource.gallery);
+    if (media != null) {
+      getImage(media);
+    }
+  }
+
+  void getVideo(XFile media) {
     selectedFile = media;
     notifyListeners();
   }
