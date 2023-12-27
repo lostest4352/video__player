@@ -38,8 +38,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15, right: 15),
+              Center(
                 child: Text(value.selectedImage?.name ?? "Nothing selected"),
               ),
               const SizedBox(
@@ -51,7 +50,7 @@ class HomePage extends StatelessWidget {
                     return Center(
                         child: Image.file(File(value.selectedImage!.path)));
                   } else {
-                    return const Center(child: Text("No Image selected"));
+                    return const Center();
                   }
                 },
               ),
