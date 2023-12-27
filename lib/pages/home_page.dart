@@ -17,42 +17,47 @@ class HomePage extends StatelessWidget {
         builder: (context, value, child) {
           return ListView(
             children: [
-              const SizedBox(
-                height: 10,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 70,
-                  right: 70,
-                ),
-                child: ElevatedButton(
-                  onPressed: () {
-                    context.read<ImagePickerService>().selectImage();
-                  },
-                  child: const Text(
-                    "Open image",
-                    style: TextStyle(color: Colors.white),
+              Column(
+                children: [
+                  const SizedBox(
+                    height: 10,
                   ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Center(
-                child: Text(value.selectedImage?.name ?? "Nothing selected"),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Builder(
-                builder: (context) {
-                  if (value.selectedImage?.path != null) {
-                    return Center(
-                        child: Image.file(File(value.selectedImage!.path)));
-                  } else {
-                    return const Center();
-                  }
-                },
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 70,
+                      right: 70,
+                    ),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        value.selectImage();
+                      },
+                      child: const Text(
+                        "Open image",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Center(
+                    child:
+                        Text(value.selectedImage?.name ?? "Nothing selected"),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Builder(
+                    builder: (context) {
+                      if (value.selectedImage?.path != null) {
+                        return Center(
+                            child: Image.file(File(value.selectedImage!.path)));
+                      } else {
+                        return const Center();
+                      }
+                    },
+                  ),
+                ],
               ),
             ],
           );
