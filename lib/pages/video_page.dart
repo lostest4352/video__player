@@ -55,22 +55,12 @@ class _VideoPageState extends State<VideoPage> {
           body: Center(
             child: Column(
               children: [
-                Builder(
-                  builder: (context) {
-                    if (imagePickerValue.selectedVideo != null) {
-                      return SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.width * 9.0 / 16.0,
-                        child: Video(
-                          controller: controller,
-                        ),
-                      );
-                    } else {
-                      return const Center(
-                        child: Text("No Video selected"),
-                      );
-                    }
-                  },
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.width * 9.0 / 16.0,
+                  child: Video(
+                    controller: controller,
+                  ),
                 ),
               ],
             ),
