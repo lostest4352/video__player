@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:my_app/pages/video_page.dart';
 import 'package:provider/provider.dart';
 
 import 'package:my_app/services/image_picker_service.dart';
@@ -12,6 +13,33 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Video Player"),
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            const DrawerHeader(
+              child: Column(
+                children: [
+                  Spacer(),
+                  Text("Drawer Header"),
+                  Spacer(),
+                ],
+              ),
+            ),
+            ListTile(
+              title: TextButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) {
+                      return const VideoPage();
+                    },
+                  ));
+                },
+                child: const Text("Video Page"),
+              ),
+            ),
+          ],
+        ),
       ),
       body: Consumer<ImagePickerService>(
         builder: (context, value, child) {
