@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:my_app/services/image_picker_service.dart';
 import 'package:provider/provider.dart';
@@ -13,11 +12,16 @@ class VideoPage extends StatefulWidget {
 
 class _VideoPageState extends State<VideoPage> {
   // final Player player = Player();
-  Player get player => context.read<ImagePickerService>().player;
-  VideoController get controller => VideoController(player);
+  // Player get player => context.read<ImagePickerService>().player;
+  // VideoController get controller => VideoController(player);
 
-  // late final player = Player();
-  // late VideoController controller = VideoController(player);
+  late final player = context.read<ImagePickerService>().player;
+  late VideoController controller = VideoController(player);
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -51,10 +55,6 @@ class _VideoPageState extends State<VideoPage> {
           body: Center(
             child: Column(
               children: [
-                // Text(
-                //   imagePickerValue.selectedVideo?.name ?? "Nothing selected",
-                // ),
-                // TODO
                 Builder(
                   builder: (context) {
                     if (imagePickerValue.selectedVideo != null) {
