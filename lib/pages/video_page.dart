@@ -38,7 +38,7 @@ class _VideoPageState extends State<VideoPage> {
             leading: IconButton(
               onPressed: () {
                 imagePickerValue.closeVideo(); // TODO
-                Navigator.of(context).pop(); // TODO
+                // Navigator.of(context).pop(); // TODO
               },
               icon: const Icon(Icons.arrow_back),
             ),
@@ -53,16 +53,18 @@ class _VideoPageState extends State<VideoPage> {
             ],
           ),
           body: Center(
-            child: Column(
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.width * 9.0 / 16.0,
-                  child: Video(
-                    controller: controller,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.width * 9.0 / 16.0,
+                    child: Video(
+                      controller: controller,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );

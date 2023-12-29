@@ -32,6 +32,6 @@ class ImagePickerService with ChangeNotifier {
   void closeVideo() {
     // selectedVideo = null;
     player.stop();
-    notifyListeners();
+    // notifyListeners();
   }
 }
