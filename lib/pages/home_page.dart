@@ -1,12 +1,12 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:my_app/pages/video_page.dart';
+import 'package:my_app/pages/widgets/app_drawer.dart';
 import 'package:provider/provider.dart';
 
 import 'package:my_app/services/image_picker_service.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class ImagePage extends StatelessWidget {
+  const ImagePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,33 +14,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Video Player"),
       ),
-      drawer: Drawer(
-        child: Column(
-          children: [
-            const DrawerHeader(
-              child: Column(
-                children: [
-                  Spacer(),
-                  Text("Drawer Header"),
-                  Spacer(),
-                ],
-              ),
-            ),
-            ListTile(
-              title: TextButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) {
-                      return const VideoPage();
-                    },
-                  ));
-                },
-                child: const Text("Video Page"),
-              ),
-            ),
-          ],
-        ),
-      ),
+      drawer: const AppDrawer(),
       body: Consumer<ImagePickerService>(
         builder: (context, value, child) {
           return ListView(

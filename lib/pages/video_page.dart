@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:media_kit_video/media_kit_video.dart';
+import 'package:my_app/pages/widgets/app_drawer.dart';
 import 'package:my_app/services/image_picker_service.dart';
 import 'package:provider/provider.dart';
 
@@ -52,6 +53,7 @@ class _VideoPageState extends State<VideoPage> {
               ),
             ],
           ),
+          drawer: const AppDrawer(),
           body: Center(
             child: SingleChildScrollView(
               child: Column(
