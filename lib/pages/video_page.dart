@@ -38,7 +38,7 @@ class _VideoPageState extends State<VideoPage> {
             leading: IconButton(
               onPressed: () {
                 imagePickerValue.closeVideo(); // TODO
-                // Navigator.of(context).pop(); // TODO
+                Navigator.of(context).pop(); // TODO
               },
               icon: const Icon(Icons.arrow_back),
             ),
