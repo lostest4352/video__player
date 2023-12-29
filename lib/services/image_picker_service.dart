@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:media_kit/media_kit.dart';
 
 class ImagePickerService with ChangeNotifier {
   final ImagePicker picker = ImagePicker();
@@ -23,5 +24,10 @@ class ImagePickerService with ChangeNotifier {
       selectedVideo = media;
       notifyListeners();
     }
+  }
+
+  void closeVideo() {
+    selectedVideo = null;
+    notifyListeners();
   }
 }
