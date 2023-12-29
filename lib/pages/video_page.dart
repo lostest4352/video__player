@@ -13,21 +13,16 @@ class VideoPage extends StatefulWidget {
 
 class _VideoPageState extends State<VideoPage> {
   // final Player player = Player();
+  Player get player => context.read<ImagePickerService>().player;
+  VideoController get controller => VideoController(player);
 
-  // VideoController get controller => VideoController(player);
-
-  late final player = Player();
-  // Create a [VideoController] to handle video output from [Player].
-  late final VideoController controller = VideoController(player);
+  // late final player = Player();
+  // late VideoController controller = VideoController(player);
 
   @override
   void dispose() {
     player.dispose();
     super.dispose();
-  }
-
-  void playVideo(ImagePickerService imagePickerValue) async {
-    await player.open(Media(imagePickerValue.selectedVideo!.path));
   }
 
   @override
@@ -48,9 +43,6 @@ class _VideoPageState extends State<VideoPage> {
               IconButton(
                 onPressed: () {
                   imagePickerValue.selectVideo();
-                  if (imagePickerValue.selectedVideo != null) {
-                    playVideo(imagePickerValue);
-                  }
                 },
                 icon: const Icon(Icons.video_library),
               ),
