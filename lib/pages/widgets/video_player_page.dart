@@ -21,9 +21,6 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 
   VideoController get controller => VideoController(player);
 
-  // int playerWidth = 16;
-  // int playerHeight = 9;
-
   @override
   void initState() {
     super.initState();
@@ -34,8 +31,9 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: (MediaQuery.of(context).size.width) /
-          (MediaQuery.of(context).size.height),
+      // aspectRatio: (MediaQuery.of(context).size.width) /
+      //     (MediaQuery.of(context).size.width * 9.0 / 16.0),
+      aspectRatio: 16 / 9,
       child: Video(
         controller: controller,
       ),
