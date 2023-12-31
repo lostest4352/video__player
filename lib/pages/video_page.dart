@@ -29,7 +29,7 @@ class _VideoPageState extends State<VideoPage> {
                 onPressed: () {
                   imagePickerValue.closeVideo();
                 },
-                icon: const Icon(Icons.close),
+                icon: const Icon(Icons.stop),
               ),
               IconButton(
                 onPressed: () {
