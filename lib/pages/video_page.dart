@@ -37,9 +37,8 @@ class _VideoPageState extends State<VideoPage> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.width * 9.0 / 16.0,
+                  AspectRatio(
+                    aspectRatio: 16 / 9,
                     child: Video(
                       controller: controller,
                     ),
