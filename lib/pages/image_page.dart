@@ -18,6 +18,12 @@ class ImagePage extends StatelessWidget {
             actions: [
               IconButton(
                 onPressed: () {
+                  imagePickerValue.closeImage();
+                },
+                icon: const Icon(Icons.close),
+              ),
+              IconButton(
+                onPressed: () {
                   imagePickerValue.selectImage();
                 },
                 icon: const Icon(Icons.image),
