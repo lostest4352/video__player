@@ -38,18 +38,20 @@ class _VideoPageState extends State<VideoPage> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  () {
-                    final vidPath = imagePickerValue.selectedVideo?.path;
-                    if (vidPath == null) {
-                      return const Center(
-                        child: Text("Nothing played"),
-                      );
-                    } else {
-                      return VideoPlayerPage(
-                        media: vidPath,
-                      );
-                    }
-                  }(),
+                  Builder(
+                    builder: (context) {
+                      final vidPath = imagePickerValue.selectedVideo?.path;
+                      if (vidPath == null) {
+                        return const Center(
+                          child: Text("Nothing played"),
+                        );
+                      } else {
+                        return VideoPlayerPage(
+                          media: vidPath,
+                        );
+                      }
+                    },
+                  ),
                   const SizedBox(
                     height: 10,
                   ),

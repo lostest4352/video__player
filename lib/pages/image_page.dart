@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:my_app/pages/widgets/app_drawer.dart';
 import 'package:provider/provider.dart';
-
 import 'package:my_app/services/image_picker_service.dart';
 
 class ImagePage extends StatelessWidget {
@@ -55,10 +54,11 @@ class ImagePage extends StatelessWidget {
                     return Align(
                       alignment: Alignment.bottomCenter,
                       child: IconButton(
-                          onPressed: () {
-                            imagePickerValue.selectImage();
-                          },
-                          icon: const Icon(Icons.open_in_browser)),
+                        onPressed: () {
+                          imagePickerValue.selectImage();
+                        },
+                        icon: const Icon(Icons.open_in_browser),
+                      ),
                     );
                   }
                 },
