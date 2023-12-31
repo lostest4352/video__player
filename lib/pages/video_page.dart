@@ -27,6 +27,12 @@ class _VideoPageState extends State<VideoPage> {
             actions: [
               IconButton(
                 onPressed: () {
+                  imagePickerValue.closeVideo();
+                },
+                icon: const Icon(Icons.close),
+              ),
+              IconButton(
+                onPressed: () {
                   imagePickerValue.selectVideo();
                 },
                 icon: const Icon(Icons.video_library),
@@ -42,8 +48,13 @@ class _VideoPageState extends State<VideoPage> {
                     builder: (context) {
                       final vidPath = imagePickerValue.selectedVideo?.path;
                       if (vidPath == null) {
-                        return const Center(
-                          child: Text("Nothing played"),
+                        return Center(
+                          child: IconButton(
+                            onPressed: () {
+                              imagePickerValue.selectVideo();
+                            },
+                            icon: const Icon(Icons.video_library),
+                          ),
                         );
                       } else {
                         return VideoPlayerPage(
@@ -54,12 +65,6 @@ class _VideoPageState extends State<VideoPage> {
                   ),
                   const SizedBox(
                     height: 10,
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      imagePickerValue.closeVideo();
-                    },
-                    icon: const Icon(Icons.stop),
                   ),
                 ],
               ),
