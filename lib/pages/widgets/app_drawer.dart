@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/pages/image_page.dart';
 import 'package:my_app/pages/video_page.dart';
+import 'package:my_app/services/image_picker_service.dart';
+import 'package:provider/provider.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -14,34 +16,33 @@ class AppDrawer extends StatelessWidget {
             child: Column(
               children: [
                 Spacer(),
-                Text("Drawer Header"),
+                Text("Media App"),
                 Spacer(),
               ],
             ),
           ),
           ListTile(
-            title: TextButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) {
-                    return const VideoPage();
-                  },
-                ));
-              },
-              child: const Text("Video Page"),
-            ),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) {
+                  return const VideoPage();
+                },
+              ));
+            },
+            title: const Text("Video Page"),
+            leading: const Icon(Icons.video_collection),
           ),
           ListTile(
-            title: TextButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) {
-                    return const ImagePage();
-                  },
-                ));
-              },
-              child: const Text("Image Page"),
-            ),
+            onTap: () {
+              context.read<ImagePickerService>().closeVideo();
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) {
+                  return const ImagePage();
+                },
+              ));
+            },
+            title: const Text("Image Page"),
+            leading: const Icon(Icons.image),
           ),
         ],
       ),

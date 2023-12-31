@@ -14,7 +14,7 @@ class ImagePage extends StatelessWidget {
       builder: (context, imagePickerValue, child) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Video Player"),
+            title: const Text("Media App"),
             actions: [
               IconButton(
                 onPressed: () {
@@ -29,7 +29,6 @@ class ImagePage extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  
                   const SizedBox(
                     height: 10,
                   ),
