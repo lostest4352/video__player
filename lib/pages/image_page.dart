@@ -25,26 +25,37 @@ class ImagePage extends StatelessWidget {
             ],
           ),
           drawer: const AppDrawer(),
-          body: ListView(
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Column(
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Builder(
-                    builder: (context) {
-                      if (imagePickerValue.selectedImage != null) {
-                        return Center(
-                          child: Image.file(
-                              File(imagePickerValue.selectedImage!.path)),
-                        );
-                      } else {
-                        return const Center();
-                      }
-                    },
-                  ),
-                ],
+              const SizedBox(
+                height: 10,
+              ),
+              Builder(
+                builder: (context) {
+                  if (imagePickerValue.selectedImage != null) {
+                    return Expanded(
+                      child: ListView(
+                        children: [
+                          Center(
+                            child: Image.file(
+                              File(imagePickerValue.selectedImage!.path),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  } else {
+                    return Align(
+                      alignment: Alignment.bottomCenter,
+                      child: IconButton(
+                          onPressed: () {
+                            imagePickerValue.selectImage();
+                          },
+                          icon: const Icon(Icons.open_in_browser)),
+                    );
+                  }
+                },
               ),
             ],
           ),
