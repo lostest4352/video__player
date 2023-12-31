@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:media_kit/media_kit.dart';
-import 'package:media_kit_video/media_kit_video.dart';
 import 'package:my_app/pages/widgets/video_player_page.dart';
 import 'package:my_app/pages/widgets/app_drawer.dart';
 import 'package:my_app/services/image_picker_service.dart';
@@ -14,9 +12,6 @@ class VideoPage extends StatefulWidget {
 }
 
 class _VideoPageState extends State<VideoPage> {
-  Player get player => context.read<ImagePickerService>().player;
-  VideoController get controller => VideoController(player);
-
   @override
   Widget build(BuildContext context) {
     return Consumer<ImagePickerService>(
