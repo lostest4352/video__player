@@ -36,13 +36,13 @@ class _VideoPageState extends State<VideoPage> {
       builder: (context, imagePickerValue, child) {
         return Scaffold(
           appBar: AppBar(
-            leading: IconButton(
-              onPressed: () {
-                imagePickerValue.closeVideo(); // TODO
-                // Navigator.of(context).pop(); // TODO
-              },
-              icon: const Icon(Icons.arrow_back),
-            ),
+            // leading: IconButton(
+            //   onPressed: () {
+            //     imagePickerValue.closeVideo(); // TODO
+            //     // Navigator.of(context).pop(); // TODO
+            //   },
+            //   icon: const Icon(Icons.arrow_back),
+            // ),
             title: const Text("Video Page"),
             actions: [
               IconButton(
@@ -64,6 +64,15 @@ class _VideoPageState extends State<VideoPage> {
                     child: Video(
                       controller: controller,
                     ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      imagePickerValue.closeVideo();
+                    },
+                    icon: const Icon(Icons.stop),
                   ),
                 ],
               ),
