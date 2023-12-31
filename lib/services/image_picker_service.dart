@@ -37,6 +37,8 @@ class ImagePickerService with ChangeNotifier {
 
   void closeVideo() {
     player.stop();
+    selectedVideo = null;
+    notifyListeners();
   }
 
   @override

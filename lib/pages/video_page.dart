@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
+import 'package:my_app/pages/video_player_page.dart';
 import 'package:my_app/pages/widgets/app_drawer.dart';
 import 'package:my_app/services/image_picker_service.dart';
 import 'package:provider/provider.dart';
@@ -37,12 +38,18 @@ class _VideoPageState extends State<VideoPage> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  AspectRatio(
-                    aspectRatio: 16 / 9,
-                    child: Video(
-                      controller: controller,
-                    ),
-                  ),
+                  () {
+                    final vidPath = imagePickerValue.selectedVideo?.path;
+                    if (vidPath == null) {
+                      return const Center(
+                        child: Text("Nothing played"),
+                      );
+                    } else {
+                      return VideoPlayerPage(
+                        media: vidPath,
+                      );
+                    }
+                  }(),
                   const SizedBox(
                     height: 10,
                   ),
