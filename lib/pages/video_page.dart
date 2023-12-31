@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:my_app/pages/widgets/app_drawer.dart';
 import 'package:my_app/services/image_picker_service.dart';
@@ -12,23 +13,8 @@ class VideoPage extends StatefulWidget {
 }
 
 class _VideoPageState extends State<VideoPage> {
-  // final Player player = Player();
-  // Player get player => context.read<ImagePickerService>().player;
-  // VideoController get controller => VideoController(player);
-
-  late final player = context.read<ImagePickerService>().player;
-  late VideoController controller = VideoController(player);
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    player.dispose();
-    super.dispose();
-  }
+  Player get player => context.read<ImagePickerService>().player;
+  VideoController get controller => VideoController(player);
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +22,6 @@ class _VideoPageState extends State<VideoPage> {
       builder: (context, imagePickerValue, child) {
         return Scaffold(
           appBar: AppBar(
-            // leading: IconButton(
-            //   onPressed: () {
-            //     imagePickerValue.closeVideo(); // TODO
-            //     // Navigator.of(context).pop(); // TODO
-            //   },
-            //   icon: const Icon(Icons.arrow_back),
-            // ),
             title: const Text("Video Page"),
             actions: [
               IconButton(

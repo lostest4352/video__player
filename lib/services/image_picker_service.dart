@@ -32,4 +32,10 @@ class ImagePickerService with ChangeNotifier {
   void closeVideo() {
     player.stop();
   }
+
+  @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
+  }
 }
