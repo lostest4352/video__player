@@ -27,9 +27,10 @@ class ImagePickerService with ChangeNotifier {
   // For videos
   void selectVideo() async {
     final XFile? media = await picker.pickVideo(source: ImageSource.gallery);
-    if (media != null) {
-      selectedVideo = media;
-      await player.open(Media(selectedVideo!.path));
+    selectedVideo = media;
+    final vidPath = selectedVideo?.path;
+    if (vidPath != null) {
+      await player.open(Media(vidPath));
       notifyListeners();
     }
   }
