@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:media_kit/media_kit.dart';
-import 'package:my_app/pages/image_page.dart';
+import 'package:my_app/pages/video_page.dart';
 import 'package:my_app/services/image_picker_service.dart';
 import 'package:provider/provider.dart';
 
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData.dark(),
-          home: const ImagePage(),
+          home: const VideoPage(),
         );
       },
     );
