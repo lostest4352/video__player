@@ -22,6 +22,12 @@ class _VideoPageState extends State<VideoPage> {
             actions: [
               IconButton(
                 onPressed: () {
+                  imagePickerValue.changeAR();
+                },
+                icon: const Icon(Icons.aspect_ratio),
+              ),
+              IconButton(
+                onPressed: () {
                   imagePickerValue.closeVideo();
                 },
                 icon: const Icon(Icons.stop),
@@ -36,33 +42,27 @@ class _VideoPageState extends State<VideoPage> {
           ),
           drawer: const AppDrawer(),
           body: Center(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Builder(
-                    builder: (context) {
-                      final vidPath = imagePickerValue.selectedVideo?.path;
-                      if (vidPath == null) {
-                        return Center(
-                          child: IconButton(
-                            onPressed: () {
-                              imagePickerValue.selectVideo();
-                            },
-                            icon: const Icon(Icons.video_library),
-                          ),
-                        );
-                      } else {
-                        return VideoPlayerPage(
-                          media: vidPath,
-                        );
-                      }
-                    },
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                ],
-              ),
+            child: Builder(
+              builder: (context) {
+                final vidPath = imagePickerValue.selectedVideo?.path;
+                if (vidPath == null) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          imagePickerValue.selectVideo();
+                        },
+                        icon: const Icon(Icons.video_library),
+                      ),
+                    ],
+                  );
+                } else {
+                  return VideoPlayerPage(
+                    media: vidPath,
+                  );
+                }
+              },
             ),
           ),
         );
