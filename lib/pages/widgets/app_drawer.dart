@@ -48,6 +48,7 @@ class AppDrawer extends StatelessWidget {
           // TODO Remove later
           ListTile(
             onTap: () {
+              context.read<ImagePickerService>().closeVideo();
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) {
                   return const ListInsert();
