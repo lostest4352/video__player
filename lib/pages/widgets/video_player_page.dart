@@ -27,13 +27,16 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      // aspectRatio: (MediaQuery.of(context).size.width) /
-      //     (MediaQuery.of(context).size.width * 9.0 / 16.0),
-      aspectRatio: 16 / 9,
-      child: Video(
-        controller: controller,
-      ),
-    );
+    return Consumer<ImagePickerService>(builder: (context, value, child) {
+      final playerHeight = value.height;
+      final playerWidth = value.width;
+      return AspectRatio(
+        aspectRatio: playerWidth / playerHeight,
+        // aspectRatio: 16 / 9,
+        child: Video(
+          controller: controller,
+        ),
+      );
+    });
   }
 }

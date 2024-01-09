@@ -4,14 +4,9 @@ import 'package:my_app/pages/widgets/app_drawer.dart';
 import 'package:my_app/services/image_picker_service.dart';
 import 'package:provider/provider.dart';
 
-class VideoPage extends StatefulWidget {
+class VideoPage extends StatelessWidget {
   const VideoPage({super.key});
 
-  @override
-  State<VideoPage> createState() => _VideoPageState();
-}
-
-class _VideoPageState extends State<VideoPage> {
   @override
   Widget build(BuildContext context) {
     return Consumer<ImagePickerService>(
