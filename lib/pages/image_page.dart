@@ -13,7 +13,7 @@ class ImagePage extends StatelessWidget {
       builder: (context, imagePickerValue, child) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Media App"),
+            title: const Text("Image Page"),
             actions: [
               IconButton(
                 onPressed: () {
