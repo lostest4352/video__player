@@ -30,28 +30,22 @@ class ImagePage extends StatelessWidget {
             ],
           ),
           drawer: const AppDrawer(),
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(
-                height: 10,
-              ),
-              Builder(
-                builder: (context) {
-                  if (imagePickerValue.selectedImage != null) {
-                    return Expanded(
-                      child: ListView(
-                        children: [
-                          Center(
-                            child: Image.file(
-                              File(imagePickerValue.selectedImage!.path),
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  } else {
-                    return Align(
+          body: Builder(
+            builder: (context) {
+              if (imagePickerValue.selectedImage != null) {
+                return InteractiveViewer(
+                  child: Center(
+                    child: Image.file(
+                      File(imagePickerValue.selectedImage!.path),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                );
+              } else {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Align(
                       alignment: Alignment.bottomCenter,
                       child: IconButton(
                         onPressed: () {
@@ -59,11 +53,11 @@ class ImagePage extends StatelessWidget {
                         },
                         icon: const Icon(Icons.open_in_browser),
                       ),
-                    );
-                  }
-                },
-              ),
-            ],
+                    ),
+                  ],
+                );
+              }
+            },
           ),
         );
       },
