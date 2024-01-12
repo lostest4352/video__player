@@ -30,15 +30,17 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
     return OrientationBuilder(
       builder: (context, orientation) {
         if (orientation == Orientation.landscape) {
-          return AspectRatio(
-            aspectRatio: 16 / 9,
+          return SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.width * 9.0 / 16.0,
             child: Video(
               controller: controller,
             ),
           );
         } else {
-          return AspectRatio(
-            aspectRatio: 9 / 16,
+          return SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.width * 16.0 / 9,
             child: Video(
               controller: controller,
             ),
