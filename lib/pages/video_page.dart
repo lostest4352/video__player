@@ -17,12 +17,6 @@ class VideoPage extends StatelessWidget {
             actions: [
               IconButton(
                 onPressed: () {
-                  imagePickerValue.changeAR();
-                },
-                icon: const Icon(Icons.aspect_ratio),
-              ),
-              IconButton(
-                onPressed: () {
                   imagePickerValue.closeVideo();
                 },
                 icon: const Icon(Icons.stop),

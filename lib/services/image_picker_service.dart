@@ -10,9 +10,6 @@ class ImagePickerService with ChangeNotifier {
 
   final player = Player();
 
-  int height = 9;
-  int width = 16;
-
   // For videos
   void selectVideo() async {
     final XFile? media = await picker.pickVideo(source: ImageSource.gallery);
@@ -33,12 +30,6 @@ class ImagePickerService with ChangeNotifier {
   void dispose() {
     player.dispose();
     super.dispose();
-  }
-
-  void changeAR() {
-    height = player.state.height ?? 9;
-    width = player.state.width ?? 16;
-    notifyListeners();
   }
 
   // For images
