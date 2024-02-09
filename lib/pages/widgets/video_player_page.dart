@@ -31,16 +31,16 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
       builder: (context, orientation) {
         if (orientation == Orientation.landscape) {
           return SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.width * 9.0 / 16.0,
+            width: MediaQuery.sizeOf(context).width,
+            height: MediaQuery.sizeOf(context).width * 9 / 16,
             child: Video(
               controller: controller,
             ),
           );
         } else {
           return SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.width * 16.0 / 9,
+            width: MediaQuery.sizeOf(context).width,
+            height: MediaQuery.sizeOf(context).width * 16 / 9,
             child: Video(
               controller: controller,
             ),
