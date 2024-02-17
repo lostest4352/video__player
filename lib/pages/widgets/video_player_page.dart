@@ -27,26 +27,33 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 
   @override
   Widget build(BuildContext context) {
-    return OrientationBuilder(
-      builder: (context, orientation) {
-        if (orientation == Orientation.landscape) {
-          return SizedBox(
-            width: MediaQuery.sizeOf(context).width,
-            height: MediaQuery.sizeOf(context).width * 9 / 16,
-            child: Video(
-              controller: controller,
-            ),
-          );
-        } else {
-          return SizedBox(
-            width: MediaQuery.sizeOf(context).width,
-            height: MediaQuery.sizeOf(context).width * 16 / 9,
-            child: Video(
-              controller: controller,
-            ),
-          );
-        }
-      },
+    return SizedBox(
+      width: controller.player.state.width?.toDouble(),
+      height: controller.player.state.height?.toDouble(),
+      child: Video(
+        controller: controller,
+      ),
     );
+    // return OrientationBuilder(
+    //   builder: (context, orientation) {
+    //     if (orientation == Orientation.landscape) {
+    //       return SizedBox(
+    //         width: MediaQuery.sizeOf(context).width,
+    //         height: MediaQuery.sizeOf(context).width * 9 / 16,
+    //         child: Video(
+    //           controller: controller,
+    //         ),
+    //       );
+    //     } else {
+    //       return SizedBox(
+    //         width: MediaQuery.sizeOf(context).width,
+    //         height: MediaQuery.sizeOf(context).width * 16 / 9,
+    //         child: Video(
+    //           controller: controller,
+    //         ),
+    //       );
+    //     }
+    //   },
+    // );
   }
 }
